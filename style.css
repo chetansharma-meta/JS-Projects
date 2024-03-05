@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: rgb(239, 239, 239);
+    padding: 15px;
+    width:inherit;
+    display: flex;
+    justify-content: center;
+}
+nav a{
+    margin: 5px;
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 40px;
+    transition: all 0.3s ease;
+}
+nav a:hover{
+    transform: scale(1.1);
+}
+nav a:first-child{
+    background-color: #777777;
+}
+
+main{
+    margin: 25px;
+}
+
+main{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+}
+.project-links{
+    margin: 10px 0;
+    color: black;
+    background-color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.project-links:hover{
+    transform: scale(1.01);
+    background-color: #777777;
+}
