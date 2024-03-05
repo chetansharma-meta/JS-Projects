@@ -9,6 +9,7 @@ nav{
     width:inherit;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 nav a{
     margin: 5px;
@@ -36,12 +37,32 @@ h1{
     margin: 20px 20px;
 }
 div.span{
-    display: flex;
+    display: flex ;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
 }
 span.button{
     border: 2px solid black;
+    border-radius: 10px;
     padding: 50px 60px;
     margin: 10px;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+span.button:hover{
+    transform: scale(1.03);
+    cursor: pointer;
+}
+span.button#grey{
+    background-color: grey;
+}
+span.button#blue{
+    background-color: blue;
+}
+span.button#red{
+    background-color: red;
+}
+span.button#yellow{
+    background-color: yellow;
 }
