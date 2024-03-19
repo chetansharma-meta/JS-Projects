@@ -9,7 +9,7 @@ window.addEventListener('keydown', (e) => {
                     <th>KeyCode</th>
                     <th>Code</th>
                 </tr>
-                <tr>
+                <tr>  
                     <td>${e.key}</td>
                     <td>${e.keyCode}</td>
                     <td>${e.code}</td>
