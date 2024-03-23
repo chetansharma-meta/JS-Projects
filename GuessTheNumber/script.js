@@ -1,71 +1,57 @@
-const randomNumber = parseInt(Math.random()*100 + 1)
+const randomNum = Math.floor(Math.random() * 100 + 1);
+// const randomNum = 10;
 
+const input = document.getElementById('guessField')
 const submit = document.getElementById('submit')
-const userInput = document.getElementById('guessField')
-const guessSlot = document.querySelector('.guesses')
-const remaining = document.querySelector('.lastResult')
-const lowOrHi = document.querySelector('.lowOrHi')
-const startOver = document.querySelector('.resultParas')
+const preGuess = document.querySelector('.lastResult')
 
-const p = document.createElement('p')
 
-let prevGuess = []
-let numGuesses = 1
-
-let playGame = true
-
-if(playGame){
-    submit.addEventListener('click', function(e){
-        e.preventDefault()
-        const guess  = parseInt(userInput.value);
-        validateGuess(guess)
-    })
-}
+let numGuess = 1
+submit.addEventListener('click', function (e) {
+    e.preventDefault();
+    const guess = parseInt(input.value);
+    console.log(guess);
+    validateGuess(guess);
+})
 
 function validateGuess(guess) {
-    if(isNaN(guess)){
-        alert('Please enter a valid Number')
-    } else if(guess < 1){
-        alert('Please enter a valid number')
-    } else if(guess > 100) {
-        alert('Please enter a number less than 100')
-    } else{
-        prevGuess.push(guess)
-        if(numGuesses === 11 ){
-            displayGuess(guess)
-            displayMessage(`Game Over. Random number was ${randomNumber}`)
-            EndGame()
-        } else {
-            displayGuess(guess)
-            checkGuess(guess)
-        }
+    if (isNaN(guess)) {
+        displayMessage(`Enter number to Start`)
+    } else if (guess < 0 || guess > 100) {
+        displayMessage(`Enter a Number btw 1 to 100`);
+    } else {
+        checkGuess(guess);
     }
 }
 
 function checkGuess(guess) {
-    if(guess=== randomNumber){
-        displayMessage(`you guessed right`)
-        EndGame()
-    } else if (guess<randomNumber){
-        displayMessage(`Number is TOO low`)
-    } else if (guess>randomNumber){
-        displayMessage(`Number is TOO high`)
+    if (guess === randomNum) {
+        alert(`Your guess: ${guess} is correct!!`)
+        console.log(guess);
+        console.log(`You are correct!!`);
+        if (confirm(`Do you want to play again?`)){
+            numGuess=1
+            preGuess.innerHTML = 10 
+            input.innerHTML = " "
+        }
+    } else if (guess !== randomNum) {
+        if(numGuess == 11){
+            displayMessage(`You have used all guesses`)
+            
+        } else{
+            preGuess.innerHTML = 10 - numGuess
+            numGuess++;
+            displayMessage('oops!! Your gusess is incorrect')
+        }
     }
 
 }
 
-function displayGuess(guess){
-
+function displayMessage(guess) {
+    console.log(guess);
+    alert(guess);
 }
 
-function displayMessage(message){
-
-}
-
-function EndGame(){
-
-}
-
-function newGame(){
+function endGame() {
 
 }
